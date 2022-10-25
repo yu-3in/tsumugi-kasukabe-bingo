@@ -16,3 +16,7 @@
 .undraggable {
   -webkit-app-region: no-drag;
 }
+
+* {
+  font-family: 'AkazukinPop';
+}
