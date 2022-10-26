@@ -1,8 +1,8 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { sounds } from '../sounds';
-import { BingoNum } from '../types/BingoNum';
-import { Colors } from '../types/Colors';
-import { cn } from '../utils/cn';
+import { sounds } from '../../sounds';
+import { BingoNum } from '../../types/BingoNum';
+import { Colors } from '../../types/Colors';
+import { cn } from '../../utils/cn';
 
 type Props = {
   notHit: BingoNum[];

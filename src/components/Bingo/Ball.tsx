@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { BingoNum } from '../types/BingoNum';
-import { Colors } from '../types/Colors';
-import { cn } from '../utils/cn';
-import { bgColor } from '../utils/css/bgColor';
-import { borderColor } from '../utils/css/borderColor';
+import React from 'react';
+import { BingoNum } from '../../types/BingoNum';
+import { Colors } from '../../types/Colors';
+import { cn } from '../../utils/cn';
+import { bgColor } from '../../utils/css/bgColor';
+import { borderColor } from '../../utils/css/borderColor';
 
 type Props = {
   hit: boolean;
@@ -12,7 +12,7 @@ type Props = {
   className?: string;
 };
 
-const BingoBall: React.FC<Props> = ({ hit, num, color, className }) => {
+const Ball: React.FC<Props> = ({ hit, num, color, className }) => {
   return (
     <div
       className={cn(
@@ -27,4 +27,4 @@ const BingoBall: React.FC<Props> = ({ hit, num, color, className }) => {
   );
 };
 
-export default BingoBall;
+export default Ball;

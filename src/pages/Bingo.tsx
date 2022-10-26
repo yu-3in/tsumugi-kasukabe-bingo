@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
-import BingoBall from '../components/BingoBall';
+import Ball from '../components/Bingo/Ball';
 import Layout from '../components/Layout';
 import { BingoNum } from '../types/BingoNum';
 import { Colors } from '../types/Colors';
-import { sounds } from '../sounds';
-import Roulette from '../components/Roulette';
+import Roulette from '../components/Bingo/Roulette';
 
 const Bingo: React.FC = () => {
   // 1 ~ 75が照準に格納された配列を初期値とする
@@ -20,7 +19,7 @@ const Bingo: React.FC = () => {
             <div className="grid grid-cols-2 tex" key={i}>
               <div>
                 {[...Array(15)].map((_, j) => (
-                  <BingoBall
+                  <Ball
                     key={i * 15 + (j + 1)}
                     hit={hit.indexOf((i * 15 + (j + 1)) as BingoNum) != -1}
                     color={colors[i]}
