@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 @tailwind base;
+:root {
+  --pop-pink: #f4bdd0;
+  --pop-orange: #e79a63;
+  --pop-yellow: #ffe670;
+  --pop-blue: #a8d9de;
+  --pop-green: #d5f4bd;
+}
 @tailwind components;
 @tailwind utilities;
 @font-face {
