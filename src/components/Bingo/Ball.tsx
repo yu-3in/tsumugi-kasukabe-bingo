@@ -6,21 +6,24 @@ import { bgColor } from '../../utils/css/bgColor';
 import { borderColor } from '../../utils/css/borderColor';
 
 type Props = {
-  hit: boolean;
+  type: 'notHit' | 'hit' | 'history';
   num: BingoNum;
   color: Colors;
+  borderWidth?: number;
   className?: string;
 };
 
-const Ball: React.FC<Props> = ({ hit, num, color, className }) => {
+const Ball: React.FC<Props> = ({ type, num, color, borderWidth = 8, className }) => {
   return (
     <div
       className={cn(
         className,
         'rounded-full  w-[calc(100vh/15.5)] h-[calc(100vh/15.5)] text-4xl flex items-center justify-center hover:cursor-pointer',
-        hit ? `border-none ${bgColor(color)} text-gray-700` : `${borderColor(color)} bg-[#fff] text-gray-400 opacity-80`
+        type === 'notHit' && `${borderColor(color)} bg-[#fff] text-gray-400 opacity-80`,
+        type === 'hit' && `border-none ${bgColor(color)} text-gray-700`,
+        type == 'history' && `${borderColor(color)} bg-[#fff] text-gray-400`
       )}
-      style={{ borderWidth: 8 }}
+      style={{ borderWidth }}
     >
       {num}
     </div>

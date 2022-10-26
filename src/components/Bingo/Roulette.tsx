@@ -3,6 +3,7 @@ import { sounds } from '../../sounds';
 import { BingoNum } from '../../types/BingoNum';
 import { Colors } from '../../types/Colors';
 import { cn } from '../../utils/cn';
+import { colors } from '../../utils/colors';
 
 type Props = {
   notHit: BingoNum[];
@@ -13,15 +14,13 @@ type Props = {
 
 const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
   // 表示する数値
-  const [num, setNum] = useState(1);
+  const [num, setNum] = useState<number>(0);
   // 数値のラインの色
   const [color, setColor] = useState<Colors | null>(null);
   // ボタンを再度押せるまでの判定を担う
   const [next, setNext] = useState<boolean>(true);
   // ルーレットが回っているかどうか
   const [running, setRunning] = useState<boolean>(false);
-  // ラインの色
-  const colors: Colors[] = ['pink', 'orange', 'yellow', 'blue', 'green'];
 
   // スタートボタンを押したときの処理
   const handleClickStart = useCallback(() => {
