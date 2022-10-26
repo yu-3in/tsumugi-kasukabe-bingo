@@ -1,12 +1,12 @@
 {
-  "name": "vite-reactts-electron-starter",
+  "name": "tsumugi-kasukabe-bingo-tournament",
   "version": "0.5.0",
   "license": "MIT",
   "main": "main/index.js",
   "author": {
     "name": "Maximilian Stümpfl"
   },
-  "description": "Starter using Vite 2+ React +Typescript + Electron for fast prototyping.",
+  "description": "",
   "keywords": [
     "vite",
     "react",
@@ -16,7 +16,7 @@
   "repository": {
     "url": "https://github.com/lTimeless/vite-reactts-electron-starter"
   },
-  "productName": "vite-reactts-electron-starter",
+  "productName": "Bingo",
   "scripts": {
     "dev": "concurrently \"yarn dev:vite\" \" yarn dev:electron\"",
     "dev:vite": "vite",
@@ -25,6 +25,8 @@
     "build:vite": "vite build",
     "build:electron": "tsc -p electron",
     "dist": "npm run build && electron-builder",
+    "dist:mac": "npm run build && electron-builder --mac --x64",
+    "dist:win": "npm run build && electron-builder --win --x64",
     "pack": "npm run build && electron-builder --dir",
     "clean": "rimraf dist main src/out",
     "type-check": "tsc",
