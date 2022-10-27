@@ -7,8 +7,8 @@ import isDev from 'electron-is-dev';
 
 const height = 1500;
 const width = 2000;
-const minHeight = 1200;
-const minWidth = 1600;
+const minHeight = 600;
+const minWidth = 800;
 
 function createWindow() {
   // Create the browser window.
