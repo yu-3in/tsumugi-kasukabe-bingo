@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import Ball from '../components/Bingo/Ball';
 import Layout from '../components/Layout';
 import { BingoNum } from '../types/BingoNum';
-import { Colors } from '../types/Colors';
 import Roulette from '../components/Bingo/Roulette';
 import History from '../components/Bingo/History';
-import { colors } from '../utils/colors';
+import Balls from '../components/Bingo/Balls';
 
 const Bingo: React.FC = () => {
   // 1 ~ 75が照準に格納された配列を初期値とする
@@ -16,25 +14,7 @@ const Bingo: React.FC = () => {
     <Layout>
       <div className="flex justify-start items-center">
         <div className="grid grid-cols-5 w-4/12">
-          {[...Array(5)].map((_, i) => (
-            <div className="grid grid-cols-2 tex" key={i}>
-              <div>
-                {[...Array(15)].map((_, j) => (
-                  <Ball
-                    key={i * 15 + (j + 1)}
-                    type={hit.indexOf((i * 15 + (j + 1)) as BingoNum) != -1 ? 'hit' : 'notHit'}
-                    color={colors[i]}
-                    num={(i * 15 + (j + 1)) as BingoNum}
-                  />
-                ))}
-              </div>
-              {/* <div>
-                {[...Array(7)].map((_, j) => (
-                  <BingoBall color="red">{i * 15 + (j + 9)}</BingoBall>
-                ))}
-              </div> */}
-            </div>
-          ))}
+          <Balls hit={hit} />
         </div>
         <div className="grid grid-cols-2 w-8/12">
           <History hit={hit} />
