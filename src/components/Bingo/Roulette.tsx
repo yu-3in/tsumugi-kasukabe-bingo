@@ -1,4 +1,5 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useAvatar } from '../../contexts/AvatarContext';
 import { sounds } from '../../sounds';
 import { BingoNum } from '../../types/BingoNum';
 import { Colors } from '../../types/Colors';
@@ -21,6 +22,8 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
   const [next, setNext] = useState<boolean>(true);
   // ルーレットが回っているかどうか
   const [running, setRunning] = useState<boolean>(false);
+  const { voice } = useAvatar();
+  const [first, setFirst] = useState<boolean>(true);
 
   // スタートボタンを押したときの処理
   const handleClickStart = useCallback(() => {
@@ -37,36 +40,52 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
       setColor(colors[Math.floor(random / 15)]);
     }, 80);
 
-    const voice1 = new Audio(sounds.bingo.次の番号は);
-    voice1.play();
+    let firstVoice;
 
-    setTimeout(() => {
-      // ルーレットの状態を停止にする（実際にはclearInterval()が実行されるまで回っている）
-      setRunning(false);
-      // 乱数生成
-      const result = notHit[Math.floor(Math.random() * notHit.length)];
+    if (first) {
+      firstVoice = sounds.bingo.始めの番号は;
+      setFirst(false);
+    } else {
+      const voices = [
+        sounds.bingo.次の番号は,
+        sounds.bingo.はいはいー次はーー,
+        sounds.bingo.さてさて次の番号はーー,
+        sounds.bingo.さてさてお次はー,
+        sounds.bingo.次はどれにしようかなんー,
+        sounds.bingo.次は何かなえーと,
+        sounds.bingo.次に選ぶのは,
+        sounds.bingo.選ばれたのは,
+        sounds.bingo.次はこの番号で決まり,
+        sounds.bingo.どれにしようかなえーと,
+        sounds.bingo.そうだな次の番号は,
+        sounds.bingo.次はこれだね,
+        sounds.bingo.次はどれがいいかな
+      ];
+      firstVoice = voices[Math.floor(Math.random() * voices.length)];
+    }
 
-      // 結果の反映
-      setNum(result);
-      setColor(colors[Math.floor(result / 15)]);
-      setHit([...hit, result]);
-      setNotHit(notHit.filter((i) => i != result));
-      // ルーレットを停止する
-      clearInterval(interval);
+    voice(firstVoice, () => {
+      setTimeout(() => {
+        // ルーレットの状態を停止にする（実際にはclearInterval()が実行されるまで回っている）
+        setRunning(false);
+        // 乱数生成
+        const result = notHit[Math.floor(Math.random() * notHit.length)];
 
-      const voice2 = new Audio(sounds.nums[result]);
-      const voice3 = new Audio(sounds.bingo.番です);
-      voice2.play();
-      voice2.addEventListener('ended', () => {
-        // voice2再生後
-        voice3.play();
-      });
-      voice3.addEventListener('ended', () => {
-        // voice3再生後
-        // ボタンを押せるようにする
-        setNext(true);
-      });
-    }, 1500);
+        // 結果の反映
+        setNum(result);
+        setColor(colors[Math.floor((result - 1) / 15)]);
+        setHit([...hit, result]);
+        setNotHit(notHit.filter((i) => i != result));
+        // ルーレットを停止する
+        clearInterval(interval);
+
+        voice(sounds.nums[result], () => {
+          voice(sounds.bingo.番です, () => {
+            setNext(true);
+          });
+        });
+      }, 500);
+    });
   }, [notHit, hit]);
 
   return (
