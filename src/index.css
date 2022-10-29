@@ -9,19 +9,10 @@
 }
 @tailwind components;
 @tailwind utilities;
+
 @font-face {
   font-family: 'AkazukinPop';
   src: url('assets/fonts/AkazukiPOP.otf') format('opentype');
-}
-
-/* For AppBar */
-.draggable {
-  -webkit-user-select: none;
-  -webkit-app-region: drag;
-}
-
-.undraggable {
-  -webkit-app-region: no-drag;
 }
 
 * {
