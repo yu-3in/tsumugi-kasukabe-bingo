@@ -14,6 +14,47 @@ const Avatar: React.FC<Props> = ({ className }) => {
   const intervalRef = useRef<NodeJS.Timer | null>(null);
   const { avatar } = useAvatar();
 
+  const wink = () => {
+    setImg(AvatarNormal);
+    setTimeout(() => {
+      setImg(AvatarClosedEyes);
+    }, 2300);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 2400);
+    setTimeout(() => {
+      setImg(AvatarClosedEyes);
+    }, 4200);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 4300);
+    setTimeout(() => {
+      setImg(AvatarClosedEyes);
+    }, 5100);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 5200);
+    setTimeout(() => {
+      setImg(AvatarClosedEyes);
+    }, 5300);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 5400);
+    setTimeout(() => {
+      setImg(AvatarClosedEyes);
+    }, 8500);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 8600);
+  };
+
+  const talking = () => {
+    setImg(AvatarTalking);
+    setTimeout(() => {
+      setImg(AvatarNormal);
+    }, 100);
+  };
+
   useEffect(() => {
     setImg(AvatarNormal);
     if (intervalRef.current !== null) {
@@ -23,43 +64,15 @@ const Avatar: React.FC<Props> = ({ className }) => {
 
     switch (avatar.status) {
       case 'none':
+        wink();
         intervalRef.current = setInterval(() => {
-          setImg(AvatarClosedEyes);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 100);
-          setTimeout(() => {
-            setImg(AvatarClosedEyes);
-          }, 1000);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 1100);
-          setTimeout(() => {
-            setImg(AvatarClosedEyes);
-          }, 3100);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 3200);
-          setTimeout(() => {
-            setImg(AvatarClosedEyes);
-          }, 5000);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 5100);
-          setTimeout(() => {
-            setImg(AvatarClosedEyes);
-          }, 8500);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 8600);
+          wink();
         }, 10000);
         break;
       case 'talking':
+        talking();
         intervalRef.current = setInterval(() => {
-          setImg(AvatarTalking);
-          setTimeout(() => {
-            setImg(AvatarNormal);
-          }, 100);
+          talking();
         }, 200);
         break;
     }
