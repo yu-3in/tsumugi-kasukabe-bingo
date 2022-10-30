@@ -4,7 +4,7 @@ import Title from '../assets/logos/bingo-tournament.png';
 import Subtitle from '../assets/logos/kasukabe-tsumugi-no.png';
 import BingoCard from '../assets/bingo-card.png';
 import LinkButton from '../components/LinkButton';
-import { fetchBingo, storeBingo } from '../api/db/bingo';
+import { fetchBingo } from '../api/db/bingo';
 
 const Home: React.FC = () => {
   const [showContinueButton, setShowContinueButton] = useState(false);
@@ -19,11 +19,6 @@ const Home: React.FC = () => {
     })();
   }, []);
 
-  const handleClickStart = async () => {
-    // ビンゴの履歴を初期化する
-    storeBingo([]);
-  };
-
   return (
     <Layout showHome={false} showSettings showCredit>
       <div className="bg-no-repeat bg-center h-screen" style={{ backgroundImage: `url(${BingoCard})` }}>
@@ -37,7 +32,7 @@ const Home: React.FC = () => {
         </div>
         <div className="absolute top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <div className="flex gap-8 flex-col items-center">
-            <LinkButton to="/bingo" className="bg-[#BD69FF] text-[#fff] text-5xl px-10 py-6" onClick={handleClickStart}>
+            <LinkButton to="/bingo" className="bg-[#BD69FF] text-[#fff] text-5xl px-10 py-6">
               はじめから
             </LinkButton>
             {showContinueButton && (
