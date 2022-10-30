@@ -56,6 +56,10 @@ const Avatar: React.FC<Props> = ({ className }) => {
   };
 
   useEffect(() => {
+    wink();
+  }, []);
+
+  useEffect(() => {
     setImg(AvatarNormal);
     if (intervalRef.current !== null) {
       clearInterval(intervalRef.current);
@@ -64,7 +68,6 @@ const Avatar: React.FC<Props> = ({ className }) => {
 
     switch (avatar.status) {
       case 'none':
-        wink();
         intervalRef.current = setInterval(() => {
           wink();
         }, 10000);
