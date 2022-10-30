@@ -43,3 +43,7 @@ contextBridge.exposeInMainWorld('Main', api);
  * I advise using the Main/api way !!
  */
 contextBridge.exposeInMainWorld('ipcRenderer', ipcRenderer);
+contextBridge.exposeInMainWorld('db', {
+  fetchBingo: () => ipcRenderer.invoke('fetchBingo'),
+  storeBingo: (bingo: Array<any>) => ipcRenderer.invoke('storeBingo', bingo)
+});

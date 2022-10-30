@@ -5,14 +5,17 @@ import Button from './Button';
 
 type Props = {
   to?: string;
+  onClick?: () => any;
   className?: string;
   children: ReactNode;
 };
 
-const LinkButton: React.FC<Props> = ({ to, className, children }) => {
+const LinkButton: React.FC<Props> = ({ to, onClick, className, children }) => {
   return (
     <Link to={to ?? ''}>
-      <Button className={cn(className)}>{children}</Button>
+      <Button onClick={onClick} className={cn(className)}>
+        {children}
+      </Button>
     </Link>
   );
 };

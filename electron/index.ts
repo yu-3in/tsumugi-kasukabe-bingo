@@ -5,6 +5,9 @@ import { join } from 'path';
 import { BrowserWindow, app, ipcMain, IpcMainEvent } from 'electron';
 import isDev from 'electron-is-dev';
 
+const Store = require('electron-store');
+const store = new Store();
+
 const height = 1500;
 const width = 2000;
 const minHeight = 600;
@@ -85,4 +88,12 @@ app.on('window-all-closed', () => {
 ipcMain.on('message', (event: IpcMainEvent, message: any) => {
   console.log(message);
   setTimeout(() => event.sender.send('message', 'hi from electron'), 500);
+});
+
+ipcMain.handle('fetchBingo', async () => {
+  return store.get('bingo', []);
+});
+
+ipcMain.handle('storeBingo', async (_, data) => {
+  store.set('bingo', data);
 });

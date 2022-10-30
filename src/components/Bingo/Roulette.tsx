@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useAvatar } from '../../contexts/AvatarContext';
 import { sounds } from '../../sounds';
 import { BingoNum } from '../../types/BingoNum';
@@ -58,7 +58,7 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
 
     let firstVoice;
 
-    if (first) {
+    if (first && hit.length === 0) {
       firstVoice = sounds.bingo.始めの番号は;
       setFirst(false);
     } else {

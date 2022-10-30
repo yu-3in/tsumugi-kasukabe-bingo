@@ -14,7 +14,6 @@ const Avatar: React.FC<Props> = ({ className }) => {
   const { avatar } = useAvatar();
 
   useEffect(() => {
-    console.log(avatar);
     switch (avatar.status) {
       case 'none':
         setImg(AvatarNormal);
