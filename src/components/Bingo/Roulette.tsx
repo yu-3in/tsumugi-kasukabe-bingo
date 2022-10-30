@@ -6,6 +6,22 @@ import { Colors } from '../../types/Colors';
 import { cn } from '../../utils/cn';
 import { colors } from '../../utils/colors';
 
+const firstVoices = [
+  sounds.bingo.次の番号は,
+  sounds.bingo.はいはいー次はーー,
+  sounds.bingo.さてさて次の番号はーー,
+  sounds.bingo.さてさてお次はー,
+  sounds.bingo.次はどれにしようかなんー,
+  sounds.bingo.次は何かなえーと,
+  sounds.bingo.次に選ぶのは,
+  sounds.bingo.選ばれたのは,
+  sounds.bingo.次はこの番号で決まり,
+  sounds.bingo.どれにしようかなえーと,
+  sounds.bingo.そうだな次の番号は,
+  sounds.bingo.次はこれだね,
+  sounds.bingo.次はどれがいいかな
+];
+
 type Props = {
   notHit: BingoNum[];
   setNotHit: React.Dispatch<React.SetStateAction<BingoNum[]>>;
@@ -46,22 +62,7 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
       firstVoice = sounds.bingo.始めの番号は;
       setFirst(false);
     } else {
-      const voices = [
-        sounds.bingo.次の番号は,
-        sounds.bingo.はいはいー次はーー,
-        sounds.bingo.さてさて次の番号はーー,
-        sounds.bingo.さてさてお次はー,
-        sounds.bingo.次はどれにしようかなんー,
-        sounds.bingo.次は何かなえーと,
-        sounds.bingo.次に選ぶのは,
-        sounds.bingo.選ばれたのは,
-        sounds.bingo.次はこの番号で決まり,
-        sounds.bingo.どれにしようかなえーと,
-        sounds.bingo.そうだな次の番号は,
-        sounds.bingo.次はこれだね,
-        sounds.bingo.次はどれがいいかな
-      ];
-      firstVoice = voices[Math.floor(Math.random() * voices.length)];
+      firstVoice = firstVoices[Math.floor(Math.random() * firstVoices.length)];
     }
 
     voice(firstVoice, () => {

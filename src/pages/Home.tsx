@@ -7,7 +7,7 @@ import LinkButton from '../components/LinkButton';
 
 const Home: React.FC = () => {
   return (
-    <Layout showSettings showCredit>
+    <Layout showHome={false} showSettings showCredit>
       <div className="bg-no-repeat bg-center h-screen" style={{ backgroundImage: `url(${BingoCard})` }}>
         <div className="flex justify-center items-center flex-col gap-8">
           <p className="text-3xl">
