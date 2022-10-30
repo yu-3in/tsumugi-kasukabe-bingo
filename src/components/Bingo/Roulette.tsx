@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useAvatar } from '../../contexts/AvatarContext';
 import { sounds } from '../../sounds';
 import { BingoNum } from '../../types/BingoNum';
@@ -41,6 +41,13 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
   const { voice } = useAvatar();
   const [first, setFirst] = useState<boolean>(true);
 
+  useEffect(() => {
+    if (hit.length > 0) {
+      setNum(hit[hit.length - 1]);
+      setColor(colors[Math.floor((hit[hit.length - 1] - 1) / 15)]);
+    }
+  }, [hit]);
+
   // スタートボタンを押したときの処理
   const handleClickStart = useCallback(() => {
     // 処理が終わるまでスタートボタンを押せないようにする
@@ -73,8 +80,6 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
         const result = notHit[Math.floor(Math.random() * notHit.length)];
 
         // 結果の反映
-        setNum(result);
-        setColor(colors[Math.floor((result - 1) / 15)]);
         setHit([...hit, result]);
         setNotHit(notHit.filter((i) => i != result));
         // ルーレットを停止する
