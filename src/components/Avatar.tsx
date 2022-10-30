@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import AvatarNormal from '../assets/avatars/normal.png';
 import AvatarTalking from '../assets/avatars/talking.png';
+import AvatarClosedEyes from '../assets/avatars/closed-eyes.png';
 import { useAvatar } from '../contexts/AvatarContext';
 import { cn } from '../utils/cn';
 
@@ -14,14 +15,44 @@ const Avatar: React.FC<Props> = ({ className }) => {
   const { avatar } = useAvatar();
 
   useEffect(() => {
+    setImg(AvatarNormal);
+    if (intervalRef.current !== null) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+
     switch (avatar.status) {
       case 'none':
-        setImg(AvatarNormal);
-        if (intervalRef.current === null) {
-          return;
-        }
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
+        intervalRef.current = setInterval(() => {
+          setImg(AvatarClosedEyes);
+          setTimeout(() => {
+            setImg(AvatarNormal);
+          }, 100);
+          setTimeout(() => {
+            setImg(AvatarClosedEyes);
+          }, 1000);
+          setTimeout(() => {
+            setImg(AvatarNormal);
+          }, 1100);
+          setTimeout(() => {
+            setImg(AvatarClosedEyes);
+          }, 3100);
+          setTimeout(() => {
+            setImg(AvatarNormal);
+          }, 3200);
+          setTimeout(() => {
+            setImg(AvatarClosedEyes);
+          }, 5000);
+          setTimeout(() => {
+            setImg(AvatarNormal);
+          }, 5100);
+          setTimeout(() => {
+            setImg(AvatarClosedEyes);
+          }, 8500);
+          setTimeout(() => {
+            setImg(AvatarNormal);
+          }, 8600);
+        }, 10000);
         break;
       case 'talking':
         intervalRef.current = setInterval(() => {
