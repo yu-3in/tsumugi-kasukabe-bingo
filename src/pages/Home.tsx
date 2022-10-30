@@ -22,10 +22,10 @@ const Home: React.FC = () => {
   return (
     <Layout showHome={false} showSettings showCredit>
       <div className="bg-no-repeat bg-center h-screen" style={{ backgroundImage: `url(${BingoCard})` }}>
-        <div className="flex justify-center items-center flex-col gap-8">
-          <p className="text-3xl">
+        <div className="flex justify-center items-center flex-col gap-4 mt-8">
+          <div>
             <img src={Subtitle} />
-          </p>
+          </div>
           <h1>
             <img src={Title} className="block" />
           </h1>
