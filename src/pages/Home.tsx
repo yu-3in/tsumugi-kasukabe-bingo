@@ -7,7 +7,7 @@ import LinkButton from '../components/LinkButton';
 
 const Home: React.FC = () => {
   return (
-    <Layout showSettings>
+    <Layout showSettings showCredit>
       <div className="bg-no-repeat bg-center h-screen" style={{ backgroundImage: `url(${BingoCard})` }}>
         <div className="flex justify-center items-center flex-col gap-8">
           <p className="text-3xl">
@@ -18,8 +18,8 @@ const Home: React.FC = () => {
           </h1>
         </div>
         <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <LinkButton to="/rules" className="bg-[#BD69FF] text-[#fff] text-5xl px-10 py-6">
-            はじめる
+          <LinkButton to="/bingo" className="bg-[#BD69FF] text-[#fff] text-5xl px-10 py-6">
+            スタート
           </LinkButton>
         </div>
       </div>
