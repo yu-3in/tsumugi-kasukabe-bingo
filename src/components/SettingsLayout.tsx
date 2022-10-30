@@ -21,7 +21,9 @@ const SettingsLayout: React.FC<Props> = ({ titleImage, subtitleImage = Subtitle,
             <img src={titleImage} className="block" />
           </h1>
         </div>
-        {children}
+        <div className="flex w-full px-8 py-4 overflow-y-scroll h-[65vh]">
+          <div className="w-8/12">{children}</div>
+        </div>
         <SettingsMenu />
       </div>
     </Layout>
