@@ -1,37 +1,47 @@
-# Vite + React + Typescript + Electron - Starter
+# 春日部つむぎのビンゴ大会
 
-![Vite + React + Typescript + Tailwind + Electron Starter](Screenshot.jpg)
+## ![](img/readme/home.png)
 
-> It is a simple starter tempalte without unnecessary packages.
+---
 
-This very simple Starter template, utilizes [Vite](https://github.com/vitejs/vite), [Tailwind](https://tailwindcss.com/), [React](https://reactjs.org/), [Typescript](https://www.typescriptlang.org/) and [Electron](https://electronjs.org/).
+## インストール
 
-By default, the React framework is used for the interface, but you can easily use any other framework such as Vue, Preact, Angular, Svelte or anything else.
+下記リンクからインストールするか、[パッケージ一覧](packages)から任意のバージョンおよび OS を選択してインストールしてください。
 
-> Vite is framework agnostic
+### Windows
 
-## Installation
+> [1.0.0 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.0.0/win/Bingo%20Setup%201.0.0.exe)
 
-Clone this repo and install all dependencies  
-`yarn` or `npm install`
+### Mac
 
-## Development
+> [1.0.0 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.0.0/mac/Bingo-1.0.0.dmg)
 
-`yarn dev` or `npm run dev`
+※ Mac の場合、初回のアプリ起動時に、「開発元が未確認のため開けません」などのアラートが表示されることがあります。その場合は、アプリアイコンを右クリックし、「開く」を選択してください。
 
-## Build
+---
 
-`yarn build` or `npm run build`
+## もう全てのマスを探さない。
 
-## Publish
+従来のビンゴアプリでありがちな「どの列の番号が当たったのかが分かりにくい」という問題を解消！
+このアプリでは、ビンゴカードの 5 つの列ごとに色分けしました。これによって、いちいちすべてのマス目を確認する必要はありません！
 
-`yarn dist` or `npm run dist`
+![](img/readme/bingo-start.png)
 
-## More advanced templates  
+## さっき当たった番号なんだっけ？を解消
 
-If you are looking for more advanced templates than this, please go to one of the following links (these are some other links out of the **[awesome-vite](https://github.com/vitejs/awesome-vite)** repo) or you can help me make this template better 🙂  
+直近に当たった番号を履歴として表示。もう隣の人にイヤな顔をされることもありません！
 
-Links: 
-- [vite-react-electron](https://github.com/caoxiemeihao/vite-react-electron)
-- [electron-vite-react](https://github.com/twstyled/electron-vite-react)
-- [vite-electron-esbuild-starter](https://github.com/jctaoo/vite-electron-esbuild-starter)
+![](img/readme/bingo1.png)
+
+## 見て、聞いて、楽しいルーレット！
+
+スタートボタンを押すと、ルーレットが回ります。さらに、春日部つむぎが声で番号を教えてくれます。
+
+![ビンゴルーレット](img/readme/bingo-roulette.gif)
+
+## 途中から再開
+
+「パソコンが落ちてしまった！」といった時にもご安心ください。このアプリには、オートセーブ機能があります。ホーム画面の「つづきから」ボタンからはじめれば、再開できます。
+
+もちろん、リセットして最初から始めたいという場合は、「はじめから」ボタンから始めることもできます。
+![](img/readme/home.png)
