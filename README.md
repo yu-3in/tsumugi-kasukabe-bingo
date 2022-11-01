@@ -1,6 +1,6 @@
 # 春日部つむぎのビンゴ大会
 
-## ![](img/readme/home.png)
+![](img/readme/home.png)
 
 ---
 
@@ -17,6 +17,14 @@
 > [1.0.0 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.0.0/mac/Bingo-1.0.0.dmg)
 
 ※ Mac の場合、初回のアプリ起動時に、「開発元が未確認のため開けません」などのアラートが表示されることがあります。その場合は、アプリアイコンを右クリックし、「開く」を選択してください。
+
+---
+
+## デモ動画
+
+音声がありますので、ミュートを解除してご覧ください。
+
+https://user-images.githubusercontent.com/73621966/199260680-8c99fc30-5d03-4861-a60c-36bdd6ad7668.mp4
 
 ---
 
