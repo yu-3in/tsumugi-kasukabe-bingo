@@ -4,6 +4,7 @@ import AvatarTalking from '../assets/avatars/talking.png';
 import AvatarClosedEyes from '../assets/avatars/closed-eyes.png';
 import { useAvatar } from '../contexts/AvatarContext';
 import { cn } from '../utils/cn';
+import { useSettings } from '../contexts/SettingsContext';
 
 type Props = {
   className?: string;
@@ -13,6 +14,7 @@ const Avatar: React.FC<Props> = ({ className }) => {
   const [img, setImg] = useState<string>(AvatarNormal);
   const intervalRef = useRef<NodeJS.Timer | null>(null);
   const { avatar } = useAvatar();
+  const settings = useSettings();
 
   const wink = () => {
     setImg(AvatarNormal);
@@ -81,7 +83,7 @@ const Avatar: React.FC<Props> = ({ className }) => {
     }
   }, [avatar]);
 
-  return <img src={img} className={cn(className)} />;
+  return <>{settings.char.display ? <img src={img} className={cn(className)} /> : <></>}</>;
 };
 
 export default Avatar;
