@@ -97,3 +97,11 @@ ipcMain.handle('fetchBingo', async () => {
 ipcMain.handle('storeBingo', async (_, data) => {
   store.set('bingo', data);
 });
+
+ipcMain.handle('fetchSettings', async () => {
+  return store.get('settings', {});
+});
+
+ipcMain.handle('storeSettings', async (_, data) => {
+  store.set('settings', data);
+});
