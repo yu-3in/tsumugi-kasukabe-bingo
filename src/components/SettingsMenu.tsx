@@ -7,7 +7,7 @@ const SettingsMenu: React.FC = () => {
       <div className="absolute -right-[12rem] -bottom-[17rem] w-[42rem] h-[42rem] bg-[#BDBFF4]/[.45] rounded-full z-10"></div>
       <div className="absolute -right-[18rem] -bottom-[14rem] w-[42rem] h-[42rem] bg-[#BDBFF4]/[.45] rounded-full z-10">
         <div className="p-4">
-          <ul className="text-white text-center text-3xl space-y-4 absolute left-[20%] top-[20%]">
+          <ul className="text-white text-center text-3xl space-y-4 absolute left-[20%] top-[25%]">
             <li>
               <NavLink to="/settings/general" className={({ isActive }) => (isActive ? 'text-[#626487]' : undefined)}>
                 一般
@@ -16,11 +16,6 @@ const SettingsMenu: React.FC = () => {
             <li>
               <NavLink to="/settings/bingo" className={({ isActive }) => (isActive ? 'text-[#626487]' : undefined)}>
                 ビンゴ
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/settings/rule" className={({ isActive }) => (isActive ? 'text-[#626487]' : undefined)}>
-                ルール
               </NavLink>
             </li>
             <li>
