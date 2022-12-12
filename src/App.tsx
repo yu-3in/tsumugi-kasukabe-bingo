@@ -7,23 +7,26 @@ import SettingsBingo from './pages/Settings/SettingsBingo';
 import SettingsGeneral from './pages/Settings/SettingsGeneral';
 import SettingsChar from './pages/Settings/SettingsChar';
 import SettingsVoice from './pages/Settings/SettingsVoice';
+import { SettingsProvider } from './contexts/SettingsContext';
 
 const App: React.FC = () => {
   return (
-    <AvatarProvider>
-      <HashRouter>
-        <Routes>
-          <Route index element={<Home />} />
-          <Route path="/bingo" element={<Bingo />} />
-          <Route path="/settings">
-            <Route path="general" element={<SettingsGeneral />} />
-            <Route path="bingo" element={<SettingsBingo />} />
-            <Route path="char" element={<SettingsChar />} />
-            <Route path="voice" element={<SettingsVoice />} />
-          </Route>
-        </Routes>
-      </HashRouter>
-    </AvatarProvider>
+    <SettingsProvider>
+      <AvatarProvider>
+        <HashRouter>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/bingo" element={<Bingo />} />
+            <Route path="/settings">
+              <Route path="general" element={<SettingsGeneral />} />
+              <Route path="bingo" element={<SettingsBingo />} />
+              <Route path="char" element={<SettingsChar />} />
+              <Route path="voice" element={<SettingsVoice />} />
+            </Route>
+          </Routes>
+        </HashRouter>
+      </AvatarProvider>
+    </SettingsProvider>
   );
 };
 
