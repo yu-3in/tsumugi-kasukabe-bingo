@@ -4,5 +4,5 @@ export const defaultSettingsValue: Settings = {
   general: {},
   bingo: {},
   char: { display: true, voice: true },
-  voice: {}
+  sound: {}
 };

@@ -24,8 +24,8 @@ const SettingsMenu: React.FC = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/settings/voice" className={({ isActive }) => (isActive ? 'text-[#626487]' : undefined)}>
-                ボイス
+              <NavLink to="/settings/sound" className={({ isActive }) => (isActive ? 'text-[#626487]' : undefined)}>
+                サウンド
               </NavLink>
             </li>
           </ul>

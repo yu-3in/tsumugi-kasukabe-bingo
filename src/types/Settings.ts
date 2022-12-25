@@ -2,7 +2,7 @@ export type Settings = {
   general: GeneralSettings;
   bingo: BingoSettings;
   char: CharSettings;
-  voice: VoiceSettings;
+  sound: SoundSettings;
 };
 export type GeneralSettings = {};
 
@@ -13,4 +13,4 @@ export type CharSettings = {
   voice: boolean; // 音声を再生するかどうか
 };
 
-export type VoiceSettings = {};
+export type SoundSettings = {};

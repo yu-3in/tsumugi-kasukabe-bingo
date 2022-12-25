@@ -6,8 +6,8 @@ import { AvatarProvider } from './contexts/AvatarContext';
 import SettingsBingo from './pages/Settings/SettingsBingo';
 import SettingsGeneral from './pages/Settings/SettingsGeneral';
 import SettingsChar from './pages/Settings/SettingsChar';
-import SettingsVoice from './pages/Settings/SettingsVoice';
 import { SettingsProvider } from './contexts/SettingsContext';
+import SettingsSound from './pages/Settings/SettingsSound';
 
 const App: React.FC = () => {
   return (
@@ -21,7 +21,7 @@ const App: React.FC = () => {
               <Route path="general" element={<SettingsGeneral />} />
               <Route path="bingo" element={<SettingsBingo />} />
               <Route path="char" element={<SettingsChar />} />
-              <Route path="voice" element={<SettingsVoice />} />
+              <Route path="sound" element={<SettingsSound />} />
             </Route>
           </Routes>
         </HashRouter>
