@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { Avatar, AvatarStatus } from '../types/Avatar';
+import { useSettings } from './SettingsContext';
 
 export type AvatarContextType = {
   avatar: Avatar;
@@ -19,6 +20,7 @@ type Props = {
 
 export const AvatarProvider: React.FC<Props> = ({ children }) => {
   const [avatar, setAvatar] = useState<Avatar>({ status: 'none' });
+  const settings = useSettings();
 
   const status = (status: AvatarStatus) => setAvatar((prev: Avatar) => ({ ...prev, status }));
 
@@ -32,6 +34,9 @@ export const AvatarProvider: React.FC<Props> = ({ children }) => {
     }
   ) => {
     const audio = new Audio(voice);
+    if (!settings.char.voice) {
+      audio.muted = true;
+    }
     before();
     audio.play();
     audio.addEventListener('ended', () => {

@@ -9,11 +9,23 @@ const SettingsChar: React.FC = () => {
   const setSettings = useSetSettings();
   return (
     <SettingsLayout titleImage={Title}>
-      <SwitchButton
-        label="キャラクターを表示する"
-        checked={settings.char.display}
-        onChange={() => setSettings({ ...settings, char: { ...settings.char, display: !settings.char.display } })}
-      />
+      <div className="space-y-3">
+        <div>
+          <SwitchButton
+            className="block"
+            label="キャラクターを表示する"
+            checked={settings.char.display}
+            onChange={() => setSettings({ ...settings, char: { ...settings.char, display: !settings.char.display } })}
+          />
+        </div>
+        <div>
+          <SwitchButton
+            label="キャラクターボイスをONにする"
+            checked={settings.char.voice}
+            onChange={() => setSettings({ ...settings, char: { ...settings.char, voice: !settings.char.voice } })}
+          />
+        </div>
+      </div>
     </SettingsLayout>
   );
 };
