@@ -75,10 +75,12 @@ const Avatar: React.FC<Props> = ({ className }) => {
         }, 10000);
         break;
       case 'talking':
-        talking();
-        intervalRef.current = setInterval(() => {
+        if (settings.char.voice) {
           talking();
-        }, 200);
+          intervalRef.current = setInterval(() => {
+            talking();
+          }, 200);
+        }
         break;
     }
   }, [avatar]);
