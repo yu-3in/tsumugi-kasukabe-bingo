@@ -15,7 +15,6 @@ const minWidth = 800;
 
 async function createWindow() {
   const settings = await store.get('settings', {});
-  console.log(settings);
   // Create the browser window.
   const window = new BrowserWindow({
     width,
