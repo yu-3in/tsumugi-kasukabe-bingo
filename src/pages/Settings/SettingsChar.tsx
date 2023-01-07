@@ -9,7 +9,7 @@ import { useSetSettings, useSettings } from '../../contexts/SettingsContext';
 const SettingsChar: React.FC = () => {
   const settings = useSettings();
   const setSettings = useSetSettings();
-  const { voice: a } = useAvatar();
+  const { voice } = useAvatar();
   return (
     <SettingsLayout titleImage={Title}>
       <div className="space-y-3">
@@ -30,7 +30,7 @@ const SettingsChar: React.FC = () => {
           {settings.char.voice && (
             <div className="ml-8 mt-4">
               <div className="grid grid-cols-3 2xl:grid-cols-4 gap-4">
-                {firstVoicesConst.map(({ name, voice }) => (
+                {firstVoicesConst.map(({ name, voice: v }) => (
                   <div key={name} className="grid grid-flow-col justify-between">
                     <SwitchButton
                       className="block"
@@ -46,7 +46,7 @@ const SettingsChar: React.FC = () => {
                         })
                       }
                     />
-                    <button onClick={() => a(voice)}>
+                    <button onClick={() => voice(v)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
