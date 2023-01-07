@@ -9,5 +9,5 @@ export const defaultSettingsValue: Settings = {
     voice: true,
     firstVoices: Object.assign({}, ...firstVoicesConst.map(({ name, defaultActive }) => ({ [name]: defaultActive })))
   },
-  sound: {}
+  sound: { mute: false }
 };

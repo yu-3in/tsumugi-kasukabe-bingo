@@ -34,10 +34,11 @@ export const AvatarProvider: React.FC<Props> = ({ children }) => {
     }
   ) => {
     const audio = new Audio(voice);
-    if (!settings.char.voice) {
+    if (!settings.char.voice || settings.sound.mute) {
       audio.muted = true;
     }
     before();
+
     audio.play();
     audio.addEventListener('ended', () => {
       status('none');

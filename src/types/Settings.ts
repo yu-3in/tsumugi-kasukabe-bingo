@@ -30,4 +30,6 @@ export type CharSettings = {
   };
 };
 
-export type SoundSettings = {};
+export type SoundSettings = {
+  mute: boolean;
+};
