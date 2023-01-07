@@ -4,7 +4,9 @@ export type Settings = {
   char: CharSettings;
   sound: SoundSettings;
 };
-export type GeneralSettings = {};
+export type GeneralSettings = {
+  fullscreenLaunch: boolean; // 全画面で起動するかどうか
+};
 
 export type BingoSettings = {};
 

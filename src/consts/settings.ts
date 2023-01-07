@@ -1,7 +1,7 @@
 import { Settings } from '../types/Settings';
 
 export const defaultSettingsValue: Settings = {
-  general: {},
+  general: { fullscreenLaunch: true },
   bingo: {},
   char: { display: true, voice: true },
   sound: {}
