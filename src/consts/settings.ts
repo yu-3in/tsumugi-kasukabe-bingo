@@ -3,7 +3,7 @@ import { firstVoicesConst } from './firstVoices';
 
 export const defaultSettingsValue: Settings = {
   general: { fullscreenLaunch: true },
-  bingo: {},
+  bingo: { ball: { notHit: 'normal', hit: 'filled', history: 'normal' } },
   char: {
     display: true,
     voice: true,

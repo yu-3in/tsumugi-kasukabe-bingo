@@ -1,3 +1,5 @@
+import { BallType } from '../components/Bingo/Ball';
+
 export type Settings = {
   general: GeneralSettings;
   bingo: BingoSettings;
@@ -8,7 +10,13 @@ export type GeneralSettings = {
   fullscreenLaunch: boolean; // 全画面で起動するかどうか
 };
 
-export type BingoSettings = {};
+export type BingoSettings = {
+  ball: {
+    hit: BallType;
+    notHit: BallType;
+    history: BallType;
+  };
+};
 
 export type CharSettings = {
   display: boolean; // アバターを表示するかどうか

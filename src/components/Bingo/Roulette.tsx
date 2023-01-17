@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { preview } from 'vite';
 import { firstVoicesConst } from '../../consts/firstVoices';
 import { useAvatar } from '../../contexts/AvatarContext';
 import { useSettings } from '../../contexts/SettingsContext';
@@ -13,9 +14,10 @@ type Props = {
   setNotHit: React.Dispatch<React.SetStateAction<BingoNum[]>>;
   hit: BingoNum[];
   setHit: React.Dispatch<React.SetStateAction<BingoNum[]>>;
+  preview: boolean;
 };
 
-const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
+const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit, preview }) => {
   const settings = useSettings();
   const firstVoices = useMemo(
     () => firstVoicesConst.filter(({ name }) => settings.char.firstVoices[name]).map(({ name }) => sounds.bingo[name]),
@@ -97,7 +99,7 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
         className={
           'px-4 py-6 rounded-2xl w-64 text-2xl block bg-violet-300 hover:cursor-pointer disabled:hover:cursor-wait disabled:opacity-50'
         }
-        onClick={handleClickStart}
+        onClick={preview ? undefined : handleClickStart}
         disabled={!next}
       >
         スタート
