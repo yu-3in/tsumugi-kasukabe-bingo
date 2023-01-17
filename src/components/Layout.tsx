@@ -6,12 +6,14 @@ import Home from '../assets/icons/home.png';
 import Settings from '../assets/icons/settings.png';
 import { Link } from 'react-router-dom';
 import Credit from './Credit';
+import Version from './Version';
 
 type Props = {
   showAvatar?: boolean;
   showHome?: boolean;
   showSettings?: boolean;
   showCredit?: boolean;
+  showVersion?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -21,6 +23,7 @@ const Layout: React.FC<Props> = ({
   showHome = true,
   showSettings = false,
   showCredit = false,
+  showVersion = false,
   className,
   children
 }) => {
@@ -49,8 +52,13 @@ const Layout: React.FC<Props> = ({
           </div>
         )}
         {showCredit && (
-          <div className="absolute right-4 bottom-2 text-gray-500">
+          <div className="absolute right-4 bottom-2 text-gray-500 z-10">
             <Credit />
+          </div>
+        )}
+        {showVersion && (
+          <div className="absolute right-4 bottom-2 text-gray-500 z-10">
+            <Version />
           </div>
         )}
       </div>
