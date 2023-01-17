@@ -13,7 +13,8 @@ const width = 2000;
 const minHeight = 600;
 const minWidth = 800;
 
-function createWindow() {
+async function createWindow() {
+  const settings = await store.get('settings', {});
   // Create the browser window.
   const window = new BrowserWindow({
     width,
@@ -25,7 +26,7 @@ function createWindow() {
     show: true,
     resizable: true,
     fullscreenable: true,
-    fullscreen: true,
+    fullscreen: settings.general.fullscreenLaunch,
     webPreferences: {
       preload: join(__dirname, 'preload.js')
     }
@@ -96,4 +97,12 @@ ipcMain.handle('fetchBingo', async () => {
 
 ipcMain.handle('storeBingo', async (_, data) => {
   store.set('bingo', data);
+});
+
+ipcMain.handle('fetchSettings', async () => {
+  return store.get('settings', {});
+});
+
+ipcMain.handle('storeSettings', async (_, data) => {
+  store.set('settings', data);
 });

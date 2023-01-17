@@ -1,35 +1,28 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { preview } from 'vite';
+import { firstVoicesConst } from '../../consts/firstVoices';
 import { useAvatar } from '../../contexts/AvatarContext';
+import { useSettings } from '../../contexts/SettingsContext';
 import { sounds } from '../../sounds';
 import { BingoNum } from '../../types/BingoNum';
 import { Colors } from '../../types/Colors';
 import { cn } from '../../utils/cn';
 import { colors } from '../../utils/colors';
 
-const firstVoices = [
-  sounds.bingo.次の番号は,
-  sounds.bingo.はいはいー次はーー,
-  sounds.bingo.さてさて次の番号はーー,
-  sounds.bingo.さてさてお次はー,
-  sounds.bingo.次はどれにしようかなんー,
-  sounds.bingo.次は何かなえーと,
-  sounds.bingo.次に選ぶのは,
-  sounds.bingo.選ばれたのは,
-  sounds.bingo.次はこの番号で決まり,
-  sounds.bingo.どれにしようかなえーと,
-  sounds.bingo.そうだな次の番号は,
-  sounds.bingo.次はこれだね,
-  sounds.bingo.次はどれがいいかな
-];
-
 type Props = {
   notHit: BingoNum[];
   setNotHit: React.Dispatch<React.SetStateAction<BingoNum[]>>;
   hit: BingoNum[];
   setHit: React.Dispatch<React.SetStateAction<BingoNum[]>>;
+  preview: boolean;
 };
 
-const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
+const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit, preview }) => {
+  const settings = useSettings();
+  const firstVoices = useMemo(
+    () => firstVoicesConst.filter(({ name }) => settings.char.firstVoices[name]).map(({ name }) => sounds.bingo[name]),
+    [settings.char.firstVoices]
+  );
   // 表示する数値
   const [num, setNum] = useState<number>(0);
   // 数値のラインの色
@@ -106,7 +99,7 @@ const Roulette: React.FC<Props> = ({ notHit, setNotHit, hit, setHit }) => {
         className={
           'px-4 py-6 rounded-2xl w-64 text-2xl block bg-violet-300 hover:cursor-pointer disabled:hover:cursor-wait disabled:opacity-50'
         }
-        onClick={handleClickStart}
+        onClick={preview ? undefined : handleClickStart}
         disabled={!next}
       >
         スタート

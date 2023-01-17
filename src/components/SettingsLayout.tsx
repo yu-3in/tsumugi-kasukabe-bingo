@@ -11,7 +11,7 @@ type Props = {
 
 const SettingsLayout: React.FC<Props> = ({ titleImage, subtitleImage = Subtitle, children }) => {
   return (
-    <Layout>
+    <Layout showCredit>
       <div className="flex justify-center items-center flex-col gap-8 mt-12">
         <div className="flex justify-center items-center flex-col gap-8">
           <p className="text-3xl">

@@ -1,10 +1,10 @@
 {
   "name": "tsumugi-kasukabe-bingo-tournament",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "main/index.js",
   "author": {
-    "name": "Maximilian Stümpfl"
+    "name": "yuuumiravy"
   },
   "description": "",
   "keywords": [
