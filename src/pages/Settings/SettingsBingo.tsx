@@ -71,9 +71,21 @@ const SettingsBingo: React.FC = () => {
             />
             <BallRadio
               name="notHit"
+              ball={{ type: 'lightNormal', ...ball }}
+              checked={'lightNormal' === settings.bingo.ball.notHit}
+              handleChange={() => handleChangeBallNotHit('lightNormal')}
+            />
+            <BallRadio
+              name="notHit"
               ball={{ type: 'filled', ...ball }}
               checked={'filled' === settings.bingo.ball.notHit}
               handleChange={() => handleChangeBallNotHit('filled')}
+            />
+            <BallRadio
+              name="notHit"
+              ball={{ type: 'lightFilled', ...ball }}
+              checked={'lightFilled' === settings.bingo.ball.notHit}
+              handleChange={() => handleChangeBallNotHit('lightFilled')}
             />
             <BallRadio
               name="notHit"
@@ -98,9 +110,21 @@ const SettingsBingo: React.FC = () => {
             />
             <BallRadio
               name="hit"
+              ball={{ type: 'lightNormal', ...ball }}
+              checked={'lightNormal' === settings.bingo.ball.hit}
+              handleChange={() => handleChangeBallHit('lightNormal')}
+            />
+            <BallRadio
+              name="hit"
               ball={{ type: 'filled', ...ball }}
               checked={'filled' === settings.bingo.ball.hit}
               handleChange={() => handleChangeBallHit('filled')}
+            />
+            <BallRadio
+              name="hit"
+              ball={{ type: 'lightFilled', ...ball }}
+              checked={'lightFilled' === settings.bingo.ball.hit}
+              handleChange={() => handleChangeBallHit('lightFilled')}
             />
             <BallRadio
               name="hit"
