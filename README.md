@@ -10,11 +10,11 @@
 
 ### Windows
 
-> [1.0.0 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.0.0/win/Bingo%20Setup%201.0.0.exe)
+> [1.1.1 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.1.1/win/Bingo%20Setup%201.0.0.exe)
 
 ### Mac
 
-> [1.0.0 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.0.0/mac/Bingo-1.0.0.dmg)
+> [1.1.1 をインストール](https://github.com/yuuumiravy/tsumugi-kasukabe-bingo/raw/main/packages/1.1.1/mac/Bingo-1.0.0.dmg)
 
 ※ Mac の場合、初回のアプリ起動時に、「開発元が未確認のため開けません」などのアラートが表示されることがあります。その場合は、アプリアイコンを右クリックし、「開く」を選択してください。
 
