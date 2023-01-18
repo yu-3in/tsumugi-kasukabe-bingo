@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { fetchSettings, storeSettings } from '../api/db/bingo';
 import { defaultSettingsValue } from '../consts/settings';
 import { Settings } from '../types/Settings';
@@ -18,7 +18,10 @@ export const SettingsProvider: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     (async () => {
-      setSettings(((await fetchSettings()) ?? defaultSettingsValue) as Settings);
+      const fetchedSettings = await fetchSettings();
+      if (Object.keys(fetchedSettings).length) {
+        setSettings(fetchedSettings as Settings);
+      }
     })();
   }, []);
 

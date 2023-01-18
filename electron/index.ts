@@ -26,7 +26,7 @@ async function createWindow() {
     show: true,
     resizable: true,
     fullscreenable: true,
-    fullscreen: settings.general.fullscreenLaunch,
+    fullscreen: settings.general?.fullscreenLaunch,
     webPreferences: {
       preload: join(__dirname, 'preload.js')
     }
